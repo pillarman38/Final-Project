@@ -1,0 +1,61 @@
+.wrapper{
+  width:100%;
+  position: fixed;
+  z-index: 1;
+}
+.headerSelection{
+  padding:10px;
+  background-color: red;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.gifImgs:hover{
+  max-width: 250px;
+  filter: brightness(50%);
+  transition: max-width 0.3s, filter 0.3s;
+}
+
+#carouselContainer{
+  width: 600px;
+  height: 420px;
+  margin: auto;
+  padding: 10px;
+}
+.minimumHgt{
+  min-height: 150px;
+}
+.minHgt{
+  border-radius: 10px;
+  min-height: 100px;
+  margin-top: 50px;
+}
+.selectionDisplay{
+  z-index: 1;
+  width:100%;
+  margin-top: 50px;
+  margin-bottom: 40px;
+  position: fixed;
+  background-color: blue;
+  padding:10px;
+}
+.headingStyle{
+  background-color: orange;
+  padding-top: 50px;
+}
+.styleExplorer{
+  padding-top: 100px;
+  margin-bottom: 40px;
+}
+
+.centerImg{
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 84px;
+height:74px;
+
+}
+#explorer{
+  margin-top: 100px;
+}

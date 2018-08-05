@@ -1,0 +1,37 @@
+[{
+		"email": "steveg@example.com",
+		"password": "PaSsWoRd",
+		"birthday": "2000-09-30 00:00:00",
+		"role": "basic"
+	},
+	{
+		"email": "hanneM@example.com",
+		"password": "hanneRules!",
+		"birthday": "1980-04-15 00:00:00",
+		"role": "basic"
+	},
+	{
+		"email": "lindaG@example.com",
+		"password": "lg014589",
+		"birthday": "2012-01-03 00:00:00",
+		"role": "admin"
+	},
+	{
+		"email": "nEsposito@example.it",
+		"password": "pswd1234",
+		"birthday": "1975-03-23 00:00:00",
+		"role": "advanced"
+	},
+	{
+		"email": "draganP@example.hr",
+		"password": "volimbaku",
+		"birthday": "1995-06-06 00:00:00",
+		"role": "advanced"
+	},
+  {
+  "email": "connorwoodford@yahoo.com",
+  "password": "goodkid38",
+  "birthday": "1995-06-06 00:00:00",
+  "role": "advanced"
+}
+]
