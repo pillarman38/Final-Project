@@ -3,17 +3,9 @@
   position: fixed;
   z-index: 1;
 }
-.headerSelection{
-  padding:10px;
-  background-color: red;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
 
-.gifImgs:hover{
-  max-width: 250px;
-  filter: brightness(50%);
-  transition: max-width 0.3s, filter 0.3s;
+.gifImgs{
+  margin-top: 100px;
 }
 
 #carouselContainer{
@@ -31,13 +23,7 @@
   margin-top: 50px;
 }
 .selectionDisplay{
-  z-index: 1;
-  width:100%;
-  margin-top: 50px;
-  margin-bottom: 40px;
-  position: fixed;
-  background-color: blue;
-  padding:10px;
+
 }
 .headingStyle{
   background-color: orange;
@@ -54,8 +40,13 @@ margin-left: auto;
 margin-right: auto;
 width: 84px;
 height:74px;
-
 }
-#explorer{
-  margin-top: 100px;
+.reviewStyle{
+  padding-top: 50px;
+}
+.marginThis{
+  padding-top: 100px;
+}
+#headerSearch{
+  padding-top: 100px;
 }

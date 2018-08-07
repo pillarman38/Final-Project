@@ -50,7 +50,8 @@ var header = $(`  <div class="headerSelection">
 
       for(var i = 0; i < USERS.length; i++){
         if(username.val() == USERS[i].email && password.val() == USERS[i].password){
-          window.location.href = "home page.html";
+          window.location.href = "library.html";
+          localStorage.setItem("userinfo",`${username.val()}`)
         }
           if(username.val() !== USERS[i].email && password.val() !== USERS[i].password){
           var errorMsg = $(`<div id="errMsg" class="border w-50 p-5 mx-auto bg-danger rounded">
