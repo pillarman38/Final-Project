@@ -17,20 +17,26 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
   <ul class="navbar-nav mr-auto" id="list">
-    <li id="appendUserName">
+    <ul class="navbar-nav mr-auto" id="list">
+      <li id="appendUserName">
 
-    </li>
-    <li class="nav-item active">
-      <a class="nav-link" href="library.html">Home <span class="sr-only">(current)</span></a>
-    </li>
+      </li>
+      <li id="logoutUser" class="nav-link" style="text-decoration: none;">
 
-    <li class="nav-item">
-      <a class="nav-link" href="about.html">About</a>
-    </li>
-    <li id="logoutUser" style="text-decoration: none;">
+      </li>
 
-    </li>
-  </ul>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Home</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="about.html">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="library.html">Library</a>
+      </li>
+
+    </ul>
 
   <form class="form-inline my-2 my-lg-0">
 
@@ -59,11 +65,8 @@
   </div>
 </div>
 
-
-
-<div class="imgDisplay">
+<div class="imgDisplay d-flex flex-wrap col-10 mx-auto">
 </div>
-
 
 <script
   src="https://code.jquery.com/jquery-3.3.1.js"

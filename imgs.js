@@ -2,6 +2,15 @@ var imgDisplay = $(".imgDisplay");
 var selectionDisplay = $('.selectionDisplay');
 var explorer = $('#explorer');
 
+function imgResults(imgData){
+  $(imgDisplay).addClass("border")
+  $(imgDisplay).append($(`<div class="col-4">
+    <img src="${imgData.images.original.url}" class="bd-highlight w-100 h-auto">
+    <p class="col-12">${imgData.title}</p>
+    <p class="col-12">${imgData.rating}</p>
+  </div>`))
+}
+
 function noresults(){
   console.log("yo get some data");
   $(imgDisplay).append(`<div class="border marginThis">
@@ -35,14 +44,9 @@ function search(){
     $.getJSON(`https://api.giphy.com/v1/gifs/search?api_key=0lYS5EdxSyumtDf8GLhpZfcsK414wCZ3&q=${$('#searchRes').val()}&limit=25&offset=0&rating=${$('#rating').val()}&lang=${$('#language').val()}`, function(resSearch){
       console.log(resSearch);
       $(imgDisplay).empty()
-      for(var i = 0; i < resSearch.data.length; i++){
-      $(imgDisplay).append($(`
-        <img src="${resSearch.data[i].images.original.url}" class="gifImgs">
-        <p>${resSearch.data[i].title}</p>
-        <p>${resSearch.data[i].rating}</p>
-        <img/>
 
-      `))
+      for(var i = 0; i < resSearch.data.length; i++){
+        imgResults(resSearch.data[i])
     }
     if(resSearch.data.length == "0"){
       $(imgDisplay).empty();
@@ -67,7 +71,6 @@ if(explorer.val() == "translate"){
     type: "text",
   }))
 
-
   $(selectionDisplay).append($('<button id="goSearchTwo" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>'))
 
   $('#goSearchTwo').on('click', function(){
@@ -78,10 +81,7 @@ if(explorer.val() == "translate"){
         $(imgDisplay).empty();
         noresults()
       } else{
-
-      $(imgDisplay).append($(`<img src="${resTranslate.data.images.original.url}" class="gifImgs">
-      <p>${resTranslate.data.title}</p>
-      <p>${resTranslate.data.rating}</p>`))
+      imgResults(resTranslate.data)
       }
     })
   })
@@ -103,10 +103,7 @@ $('#goSearchThree').on('click', function(){
     console.log(resSearch);
     doubleClick = true;
     for(var i = 0; i < resSearch.data.length; i++){
-    $(imgDisplay).append($('<img/>', {
-      class: "gifImgs",
-      src: resSearch.data[i].images.original.url,
-    }))
+    imgResults(resSearch.data[i])
     }
     if(resSearch.data.length == "0"){
       $(imgDisplay).empty();
@@ -130,10 +127,7 @@ if(explorer.val() == "random"){
     $(imgDisplay).empty()
   $.getJSON(`https://api.giphy.com/v1/gifs/random?api_key=0lYS5EdxSyumtDf8GLhpZfcsK414wCZ3&tag=&rating=G`, function(randData){
     console.log(randData);
-    $(imgDisplay).append($('<img/>', {
-      class: "gifImgs",
-      src: randData.data.images.original.url,
-    }))
+    imgResults(randData.data)
     if(randData.data.length == "0"){
       $(imgDisplay).empty();
       noresults()
