@@ -96,13 +96,15 @@ var reviewData = $('.reviewData');
 var filteredReviews = REVIEWS.filter(function(ratings){
   return ratings.rating > 3;
 })
-console.log(filteredReviews);
 
 for(var i = 0; i < filteredReviews.length; i++){
+  var firstNames = filteredReviews[i].name.split(" ")
+  firstNames.pop()
+  console.log(firstNames);
   $(reviewData).append(`<div class="reviewStyle border">
-    <p>${filteredReviews[i].name}</p>
+    <p>${firstNames}</p>
     <p>${filteredReviews[i].rating}</p>
     <p>${filteredReviews[i].comments}</p>
+    <p>${filteredReviews[i].reviewDate}</p>
     </div>`)
-
 }
