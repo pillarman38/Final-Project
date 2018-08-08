@@ -93,11 +93,16 @@ const REVIEWS = [
 
 var reviewData = $('.reviewData');
 
-for(var i = 0; i < REVIEWS.length; i++){
+var filteredReviews = REVIEWS.filter(function(ratings){
+  return ratings.rating > 3;
+})
+console.log(filteredReviews);
+
+for(var i = 0; i < filteredReviews.length; i++){
   $(reviewData).append(`<div class="reviewStyle border">
-    <p>${REVIEWS[i].name}</p>
-    <p>${REVIEWS[i].rating}</p>
-    <p>${REVIEWS[i].comments}</p>
+    <p>${filteredReviews[i].name}</p>
+    <p>${filteredReviews[i].rating}</p>
+    <p>${filteredReviews[i].comments}</p>
     </div>`)
 
 }
