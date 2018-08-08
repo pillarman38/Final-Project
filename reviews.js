@@ -92,10 +92,16 @@ const REVIEWS = [
 ];
 
 var reviewData = $('.reviewData');
+var aboutSelector = $('#aboutSelector');
+var feedback = $('#feedback');
+var feedbackBtn = $('#feedbackBtn');
 
 var filteredReviews = REVIEWS.filter(function(ratings){
   return ratings.rating > 3;
 })
+if($(aboutSelector).val() == "date"){
+
+}
 
 for(var i = 0; i < filteredReviews.length; i++){
   var firstNames = filteredReviews[i].name.split(" ")

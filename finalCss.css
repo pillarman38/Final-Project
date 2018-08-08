@@ -51,3 +51,22 @@ height:74px;
 .imgDisplay{
   padding-top: 100px;
 }
+.locationLocation{
+  float: right;
+}
+.footer{
+  background-color: grey;
+  width: auto;
+  height: 200px;
+}
+.iframe{
+  margin-top: -40px;
+}
+.locationTxt{
+  margin-left: 62%;
+  padding-top: 20px;
+}
+.feedbackTxt{
+  min-width: 500px;
+  min-height: 100px;
+}
