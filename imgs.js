@@ -20,6 +20,9 @@ function jsonError(errorCheck){
     console.log("could not connect to server");
   }
 }
+function imgAddClass(){
+  $(imgDisplay).addClass("border");
+}
 
 function imgResults(imgData){
   $(imgDisplay).addClass("border")
@@ -32,7 +35,7 @@ function imgResults(imgData){
 }
 
 function noresults(){
-
+$(imgDisplay).empty();
   $(imgDisplay).append(`<div class="border marginThis">
   <p>Could not find any gifs</p>
   </div>`)
@@ -40,6 +43,7 @@ function noresults(){
 
 function search(){
     if(explorer.val()== "search"){
+      $(imgDisplay).removeClass("border")
     $(selectionDisplay).append($('<input/>', {
       id: "searchRes",
       type: "search",
@@ -62,6 +66,7 @@ function search(){
 
   $('#goSearch').on('click', function(){
     $.getJSON(`https://api.giphy.com/v1/gifs/search?api_key=0lYS5EdxSyumtDf8GLhpZfcsK414wCZ3&q=${$('#searchRes').val()}&limit=25&${$('#offset').val()}=0&rating=${$('#rating').val()}&lang=${$('#language').val()}`, function(resSearch){
+      imgAddClass()
       jsonError(resSearch)
       console.log(resSearch);
       $(imgDisplay).empty()
@@ -70,7 +75,6 @@ function search(){
         imgResults(resSearch.data[i])
     }
     if(resSearch.data.length == "0"){
-      $(imgDisplay).empty();
       noresults()
     }
     })
@@ -86,7 +90,7 @@ $('#explorer').on('change', function(){
 
 
 if(explorer.val() == "translate"){
-
+  $(imgDisplay).removeClass("border")
   $(selectionDisplay).append($('<input/>', {
     id: "translateThis",
     type: "text",
@@ -97,10 +101,10 @@ if(explorer.val() == "translate"){
   $('#goSearchTwo').on('click', function(){
     $(imgDisplay).empty()
     $.getJSON(`https://api.giphy.com/v1/gifs/translate?api_key=0lYS5EdxSyumtDf8GLhpZfcsK414wCZ3&s=${$('#translateThis').val()}`, function(resTranslate){
+      imgAddClass()
       jsonError(resTranslate)
       console.log(resTranslate);
       if(resTranslate.data.length == "0"){
-        $(imgDisplay).empty();
         noresults()
       } else{
       imgResults(resTranslate.data)
@@ -110,7 +114,7 @@ if(explorer.val() == "translate"){
 }
 
 if(explorer.val() == "trending"){
-
+  $(imgDisplay).removeClass("border")
   $(selectionDisplay).append($(`<select id="ratingTwo" class="custom-select">
     <option value="g">g</option>
     <option value="pg">pg</option>
@@ -122,6 +126,7 @@ if(explorer.val() == "trending"){
 $('#goSearchThree').on('click', function(){
     $(imgDisplay).empty()
   $.getJSON(`https://api.giphy.com/v1/gifs/trending?api_key=0lYS5EdxSyumtDf8GLhpZfcsK414wCZ3&limit=25&rating=${$('#ratingTwo').val()}`, function(resSearch){
+    imgAddClass()
     jsonError(resSearch)
     console.log(resSearch);
     doubleClick = true;
@@ -129,13 +134,13 @@ $('#goSearchThree').on('click', function(){
     imgResults(resSearch.data[i])
     }
     if(resSearch.data.length == "0"){
-      $(imgDisplay).empty();
       noresults()
     }
   })
 })
 }
 if(explorer.val() == "random"){
+  $(imgDisplay).removeClass("border")
     $(imgDisplay).empty()
 
     $(selectionDisplay).append($('<input/>', {
@@ -170,7 +175,3 @@ if(explorer.val() == "random"){
     })
   }
 })
-
-//start date for nex cohort is...sept 4.
-
-//Connor.Woodford@midlandu.edu
