@@ -48,19 +48,23 @@ var header = $(`  <div class="headerSelection">
 
       $("#submitBtn").on("click", function() {
 
-      for(var i = 0; i < USERS.length; i++){
-        if(username.val() == USERS[i].email && password.val() == USERS[i].password){
-          window.location.href = "index.html";
-          localStorage.setItem("userinfo",`${username.val()}`)
-        }
-          if(username.val() !== USERS[i].email && password.val() !== USERS[i].password){
-          var errorMsg = $(`<div id="errMsg" class="border w-50 p-5 mx-auto bg-danger rounded">
-            <p>
-              Wrong username or password
-            </p>
-          </div>`)
-          errorMsg.appendTo("#errorContainer");
+        var userCheck = USERS.filter(function(user){
+          return (user.email == username.val() && user.password == password.val());
+        })
 
-        }
-      };
-    })
+        if(userCheck){
+          localStorage.setItem("userinfo",`${username.val()}`)
+          window.location.href = "index.html";
+        } else {
+
+      var errorMsg = $(`<div id="errMsg" class="border w-50 p-3 mx-auto bg-danger rounded">
+        <p>
+          Wrong username or password
+        </p>
+      </div>`)
+      errorMsg.appendTo("#errorContainer");
+    }
+    });
+
+
+    //if(userCheck)
