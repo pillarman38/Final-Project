@@ -1,6 +1,25 @@
+var userinfo = localStorage.getItem("userinfo");
 var imgDisplay = $(".imgDisplay");
 var selectionDisplay = $('.selectionDisplay');
 var explorer = $('#explorer');
+var logoutUser = $('#logoutUser');
+
+if(!userinfo){
+  console.log("hi there");
+  window.location.href = 'login.html';
+
+} else {
+  $(logoutUser).append(`<a href="login.html">Logout</a>`)
+}
+$(logoutUser).on('click', function(){
+  localStorage.removeItem("userinfo")
+})
+
+function jsonError(errorCheck){
+  if(errorCheck.meta.status != 200){
+    console.log("could not connect to server");
+  }
+}
 
 function imgResults(imgData){
   $(imgDisplay).addClass("border")
@@ -8,11 +27,12 @@ function imgResults(imgData){
     <img src="${imgData.images.original.url}" class="bd-highlight w-100 h-auto">
     <p class="col-12">${imgData.title}</p>
     <p class="col-12">${imgData.rating}</p>
+    <a href="${imgData.url}">${imgData.url}</a>
   </div>`))
 }
 
 function noresults(){
-  console.log("yo get some data");
+
   $(imgDisplay).append(`<div class="border marginThis">
   <p>Could not find any gifs</p>
   </div>`)
@@ -41,7 +61,8 @@ function search(){
     $(selectionDisplay).append($('<button id="goSearch" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>'))
 
   $('#goSearch').on('click', function(){
-    $.getJSON(`https://api.giphy.com/v1/gifs/search?api_key=0lYS5EdxSyumtDf8GLhpZfcsK414wCZ3&q=${$('#searchRes').val()}&limit=25&offset=0&rating=${$('#rating').val()}&lang=${$('#language').val()}`, function(resSearch){
+    $.getJSON(`https://api.giphy.com/v1/gifs/search?api_key=0lYS5EdxSyumtDf8GLhpZfcsK414wCZ3&q=${$('#searchRes').val()}&limit=25&${$('#offset').val()}=0&rating=${$('#rating').val()}&lang=${$('#language').val()}`, function(resSearch){
+      jsonError(resSearch)
       console.log(resSearch);
       $(imgDisplay).empty()
 
@@ -76,6 +97,7 @@ if(explorer.val() == "translate"){
   $('#goSearchTwo').on('click', function(){
     $(imgDisplay).empty()
     $.getJSON(`https://api.giphy.com/v1/gifs/translate?api_key=0lYS5EdxSyumtDf8GLhpZfcsK414wCZ3&s=${$('#translateThis').val()}`, function(resTranslate){
+      jsonError(resTranslate)
       console.log(resTranslate);
       if(resTranslate.data.length == "0"){
         $(imgDisplay).empty();
@@ -100,6 +122,7 @@ if(explorer.val() == "trending"){
 $('#goSearchThree').on('click', function(){
     $(imgDisplay).empty()
   $.getJSON(`https://api.giphy.com/v1/gifs/trending?api_key=0lYS5EdxSyumtDf8GLhpZfcsK414wCZ3&limit=25&rating=${$('#ratingTwo').val()}`, function(resSearch){
+    jsonError(resSearch)
     console.log(resSearch);
     doubleClick = true;
     for(var i = 0; i < resSearch.data.length; i++){
@@ -115,6 +138,13 @@ $('#goSearchThree').on('click', function(){
 if(explorer.val() == "random"){
     $(imgDisplay).empty()
 
+    $(selectionDisplay).append($('<input/>', {
+      id: "tag",
+      type: "search",
+      class: "form-control mr-sm-2",
+      placeholder:"Search tags",
+    }))
+
   $(selectionDisplay).append($(`<select id="ratingTwo" class="custom-select">
     <option value="g">g</option>
     <option value="pg" selected="selected">pg</option>
@@ -125,9 +155,13 @@ if(explorer.val() == "random"){
   $(selectionDisplay).append($('<button id="getRand" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>'))
   $('#getRand').on('click', function(){
     $(imgDisplay).empty()
-  $.getJSON(`https://api.giphy.com/v1/gifs/random?api_key=0lYS5EdxSyumtDf8GLhpZfcsK414wCZ3&tag=&rating=G`, function(randData){
+  $.getJSON(`https://api.giphy.com/v1/gifs/random?api_key=0lYS5EdxSyumtDf8GLhpZfcsK414wCZ3&tag=${$('#tags').val()}&rating=${$('#ratingTwo').val()}`, function(randData){
     console.log(randData);
-    imgResults(randData.data)
+    $(imgDisplay).append($(`<div class="col-4">
+      <img src="${randData.data.images.original.url}" class="bd-highlight w-100 h-auto">
+      <p class="col-12">${randData.data.title}</p>
+    </div>`))
+
     if(randData.data.length == "0"){
       $(imgDisplay).empty();
       noresults()

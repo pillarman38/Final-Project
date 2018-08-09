@@ -68,7 +68,7 @@ const REVIEWS = [
   {
     "name": "Lauren Hayes",
     "rating": 4,
-    "reviewDate": "06/06/18",
+    "reviewDate": "06/06/17",
     "comments": "Just renewed my membership, tots worth it!"
   },
   {
@@ -95,22 +95,49 @@ var reviewData = $('.reviewData');
 var aboutSelector = $('#aboutSelector');
 var feedback = $('#feedback');
 var feedbackBtn = $('#feedbackBtn');
+var sortReviews = $('#sortReviews');
 
 var filteredReviews = REVIEWS.filter(function(ratings){
   return ratings.rating > 3;
 })
-if($(aboutSelector).val() == "date"){
 
-}
-
-for(var i = 0; i < filteredReviews.length; i++){
-  var firstNames = filteredReviews[i].name.split(" ")
-  firstNames.pop()
-  console.log(firstNames);
+function appendReview(review){
   $(reviewData).append(`<div class="reviewStyle border">
-    <p>${firstNames}</p>
-    <p>${filteredReviews[i].rating}</p>
-    <p>${filteredReviews[i].comments}</p>
-    <p>${filteredReviews[i].reviewDate}</p>
+    <p>${review.name}</p>
+    <p>${review.rating}</p>
+    <p>${review.comments}</p>
+    <p>${review.reviewDate}</p>
     </div>`)
 }
+
+function appendReviews(){
+for(var i = 0; i < filteredReviews.length; i++){
+  filteredReviews[i].name = filteredReviews[i].name.split(" ")[0];
+  appendReview(filteredReviews[i])
+}
+}
+  function sortByRating() {
+    filteredReviews.sort(function(a, b){
+      return a.rating - b.rating
+    });
+    appendReviews()
+}
+
+function sortByDate() {
+  filteredReviews.sort(function(a, b){
+    return new Date(a.reviewDate) > new Date(b.reviewDate) ? -1 : 1
+  });
+  appendReviews()
+}
+
+$(sortReviews).change(function(){
+    $(reviewData).empty()
+    if(sortReviews.val() == "rating"){
+      sortByRating();
+    }
+    if(sortReviews.val() == "date"){
+      sortByDate()
+    }
+
+})
+sortByDate();
