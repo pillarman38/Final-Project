@@ -14,7 +14,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto" id="list">
-        <li id="appendUserName">
+        <li id="appendUserName" class="pt-2">
         </li>
 
         <li id="logoutUser" class="nav-link" style="text-decoration: none;">
@@ -31,23 +31,25 @@
         <li class="nav-item">
           <a class="nav-link" href="library.html">Library</a>
         </li>
+        <li class="nav-item pt-2 mr-1">
+        <p>
+          Sort reviews by:
+        </p>
+        </li>
+        <li class="nav-item pt-2">
+        <select id="sortReviews">
+          <option value="date">
+            date
+          </option>
+          <option value="rating">
+            rating
+          </option>
+        </select>
+        </li>
       </ul>
-
-
     </div>
     </nav>
     </div>
-    <p>
-      Sort reviews by:
-    </p>
-    <select id="sortReviews">
-      <option value="date">
-        date
-      </option>
-      <option value="rating">
-        rating
-      </option>
-    </select>
     </nav>
     </div>
 
@@ -55,29 +57,28 @@
     </div>
   </div>
 
-  <div class="reviewData mx-auto pt-5">
+  <div class="reviewData mx-auto col-10">
   </div>
 
-  <div class="mx-auto col-6  border mt-5">
+  <div class="mx-auto col-6  border mt-5 mb-5">
   <table class="table">
       <th>Why were the best</th>
       <tr>
       <td>Competitor Comparison</td>
-      <td><p style="color: blue;">Encore</p></td>
-      <td><p>Crater</p></td>
-      <td><p>Vast</p></td>
-    <td><p>SuperSounds</p></td>
-    <td><p>Impackt</p></td></tr>
-      <tr>
-      <td>Sample Rates:</td>
+      <td class="bg-success"><p style="color: blue;">Encore</p></td>
+      <td class="bg-danger"><p>Crater</p></td>
+      <td class="bg-danger"><p>Vast</p></td>
+      <td class="bg-danger"><p>SuperSounds</p></td>
+      <td class="bg-danger"><p>Impackt</p></td></tr>
+    <tr>
+      <td class="bg-primary">Sample Rates:</td>
       <td><p>96,000Hz</p></td>
       <td><p>44,100Hz</p></td>
       <td><p>4,100Hz</p></td>
       <td><p>44,100Hz</p></td>
       <td><p>44,100Hz</p></td></tr>
-
     <tr>
-      <td><p>All Genres</p></td>
+      <td class="bg-info"><p>All Genres</p></td>
       <td><img src="checkmark_selected.png" /></td>
       <td><p>Rock only</p></td>
       <td><img src="checkmark_selected.png" /></td>
@@ -85,7 +86,7 @@
       <td>Electronic Only</td>
     </tr>
     <tr>
-      <td>Full project files</td>
+      <td class="bg-primary">Full project files</td>
       <td><img src="checkmark_selected.png" /></td>
       <td><img src="x.png" width="16" height="16"/></td>
       <td><img src="checkmark_selected.png" /></td>
@@ -94,7 +95,7 @@
     </tr>
 
     <tr>
-      <td><p>All sounds in every key</p></td>
+      <td class="bg-info"><p>All sounds in every key</p></td>
       <td><img src="checkmark_selected.png" /></td>
       <td><img src="x.png" width="16" height="16"/></td>
       <td><img src="x.png" width="16" height="16"/></td>
@@ -103,7 +104,7 @@
     </tr>
 
     <tr>
-      <td><p>All DAW Support</p></td>
+      <td class="bg-primary"><p>All DAW Support</p></td>
       <td><img src="checkmark_selected.png" /></td>
       <td><img src="x.png" width="16" height="16"/></td>
       <td><img src="checkmark_selected.png" /></td>
@@ -112,7 +113,7 @@
     </tr>
 
     <tr>
-      <td><p>Money back Guarantee</p>
+      <td class="bg-info"><p>Money back Guarantee</p>
       </td><td><img src="checkmark_selected.png" /></td>
       <td><img src="x.png" width="16" height="16"/></td>
       <td><img src="x.png" width="16" height="16"/></td>
@@ -122,6 +123,7 @@
 
   </table>
   </div>
+
   <div class="footer">
     <p class="locationTxt">
       Location:
@@ -131,7 +133,6 @@
 
   </div>
   <div class="contactStyle">
-
   <p>
     Contact
   </p>
@@ -140,14 +141,12 @@
   </p>
   <p>
     email:
-
     <a href="mailto:example@example.com"
     target="_top">Contact Us</a>
-
   </div>
 
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
+  <button type="button" class="btn btn-primary ml-3" data-toggle="modal" data-target="#exampleModal">
+    Give us feedback
   </button>
 
   <!-- Modal -->
@@ -180,6 +179,7 @@
       </div>
     </div>
   </div>
+</div>
   <script
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="

@@ -40,7 +40,7 @@ width: 84px;
 height:74px;
 }
 .reviewStyle{
-  padding-top: 50px;
+  padding-top: 100px;
 }
 .marginThis{
   padding-top: 100px;
@@ -61,12 +61,18 @@ height:74px;
 }
 .iframe{
   margin-top: -40px;
+  margin-right: 20px;
 }
 .locationTxt{
-  margin-left: 62%;
+  margin-left: 60%;
   padding-top: 20px;
+
 }
 .feedbackTxt{
   min-width: 500px;
   min-height: 100px;
+}
+.contactStyle{
+  margin-top: -40px;
+  padding-left: 20px;
 }
