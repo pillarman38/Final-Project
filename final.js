@@ -66,6 +66,3 @@ var header = $(`  <div class="headerSelection">
       errorMsg.appendTo("#errorContainer");
     }
     });
-
-
-    //if(userCheck)

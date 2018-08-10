@@ -103,10 +103,10 @@ var filteredReviews = REVIEWS.filter(function(ratings){
 
 function appendReview(review){
   $(reviewData).append(`<div class="reviewStyle border">
-    <p class="ml-5">${review.name}</p>
-    <p class="ml-3">${review.rating}</p>
-    <p class="ml-3">${review.comments}</p>
-    <p class="ml-3">${review.reviewDate}</p>
+    <p>${review.name}</p>
+    <p>${review.rating}</p>
+    <p>${review.comments}</p>
+    <p>${review.reviewDate}</p>
     </div>`)
 }
 
@@ -127,6 +127,7 @@ function sortByDate() {
   filteredReviews.sort(function(a, b){
     return new Date(a.reviewDate) > new Date(b.reviewDate) ? -1 : 1
   });
+
   appendReviews()
 }
 
