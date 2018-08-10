@@ -3,16 +3,13 @@
   position: fixed;
   z-index: 1;
 }
-
 .gifImgs{
   margin-top: 100px;
 }
-
 #carouselContainer{
   width: 600px;
   height: 420px;
   margin: auto;
-
 }
 .minimumHgt{
   min-height: 150px;
@@ -22,7 +19,6 @@
   min-height: 100px;
   margin-top: 50px;
 }
-
 .headingStyle{
   background-color: orange;
   padding-top: 50px;
@@ -31,7 +27,6 @@
   padding-top: 100px;
   margin-bottom: 40px;
 }
-
 .centerImg{
 display: block;
 margin-left: auto;
@@ -49,7 +44,7 @@ height:74px;
   padding-top: 100px;
 }
 .imgDisplay{
-  padding-top: 130px;
+  padding-top: 100px;
 }
 .locationLocation{
   float: right;
@@ -66,7 +61,6 @@ height:74px;
 .locationTxt{
   margin-left: 60%;
   padding-top: 20px;
-
 }
 .feedbackTxt{
   min-width: 500px;
