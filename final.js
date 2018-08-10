@@ -44,6 +44,7 @@ var header = $(`  <div class="headerSelection">
 
       var username = $("#username");
       var password = $("#password");
+      
       console.log(USERS);
 
       $("#submitBtn").on("click", function() {

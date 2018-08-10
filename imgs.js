@@ -2,15 +2,7 @@ var userinfo = localStorage.getItem("userinfo");
 var imgDisplay = $(".imgDisplay");
 var selectionDisplay = $('.selectionDisplay');
 var explorer = $('#explorer');
-var logoutUser = $('#logoutUser');
 
-if(!userinfo){
-  console.log("hi there");
-  window.location.href = 'login.html';
-
-} else {
-  $(logoutUser).append(`<a href="login.html">Logout</a>`)
-}
 $(logoutUser).on('click', function(){
   localStorage.removeItem("userinfo")
 })
