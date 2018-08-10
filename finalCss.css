@@ -31,8 +31,9 @@
 display: block;
 margin-left: auto;
 margin-right: auto;
+padding-top: 80px;
 width: 84px;
-height:74px;
+height:150px;
 }
 .reviewStyle{
   padding-top: 100px;
