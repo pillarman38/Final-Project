@@ -103,10 +103,10 @@ var filteredReviews = REVIEWS.filter(function(ratings){
 
 function appendReview(review){
   $(reviewData).append(`<div class="reviewStyle border">
-    <p>${review.name}</p>
-    <p>${review.rating}</p>
-    <p>${review.comments}</p>
-    <p>${review.reviewDate}</p>
+    <p class="ml-3">${review.name}</p>
+    <p class="ml-3">${review.rating}</p>
+    <p class="ml-3">${review.comments}</p>
+    <p class="ml-3">${review.reviewDate}</p>
     </div>`)
 }
 
